@@ -24,7 +24,7 @@ const Features: React.FC<FeaturesProps> = ({ stats }) => {
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-neutral-200">
               {stat.title}
             </h4>
-            <p className="mt-2 sm:mt-3 text-4xl sm:text-6xl font-bold text-blue-600">
+            <p className="mt-2 sm:mt-3 text-4xl sm:text-6xl font-bold text-[#000080]">
               {stat.value}
             </p>
             <p className="mt-1 text-gray-500 dark:text-neutral-500">

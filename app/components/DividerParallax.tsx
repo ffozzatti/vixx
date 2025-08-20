@@ -1,4 +1,7 @@
 import React from "react";
+import Button from "./Button";
+
+
 
 // Define a estrutura das props para o componente
 interface DividerParallaxProps {
@@ -21,6 +24,8 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
     backgroundImage: `url(${backgroundImageUrl})`,
   };
 
+ 
+
   return (
     <section
       // A MÁGICA ACONTECE AQUI 👇
@@ -33,17 +38,12 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
             {title}
           </h2>
 
-          <p className="hidden text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">
+          <p className="hidden text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed text-center">
             {description}
           </p>
 
           <div className="mt-4 sm:mt-8">
-            <a
-              href={buttonLink}
-              className="inline-block rounded-full bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:ring-3 focus:ring-yellow-400 focus:outline-hidden"
-            >
-              {buttonText}
-            </a>
+            <Button name={"Contact"} url={"#"} />
           </div>
         </div>
       </div>

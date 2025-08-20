@@ -1,7 +1,8 @@
 "use client";
 
+import Button from "@/app/components/Button";
 import React from "react";
-import Button from "./Button";
+
 
 // Define a estrutura para cada bloco de ícone na parte inferior
 interface IconBlockProps {
@@ -48,7 +49,7 @@ const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
 
   return (
     // <!-- Contact Us -->
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950" id="contact">
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950">
       <div className="max-w-xl mx-auto">
         <div className="text-center">
           <h1 className="text-3xl font-bold  sm:text-4xl ">Contact us</h1>
