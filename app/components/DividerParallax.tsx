@@ -16,8 +16,7 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
   backgroundImageUrl,
   title,
   description,
-  buttonText,
-  buttonLink = "#", // Valor padrão para o link
+
 }) => {
   // Estilo dinâmico para a imagem de fundo
   const sectionStyle = {

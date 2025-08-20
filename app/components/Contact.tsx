@@ -17,7 +17,7 @@ interface ContactProps {
   iconBlocks: IconBlockProps[];
 }
 
-const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
+const Contact: React.FC<ContactProps> = () => {
   // Estado para armazenar os dados do formulário
   const [formData, setFormData] = React.useState({
     firstName: "",

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
@@ -11,7 +11,7 @@ import { BsTwitterX } from "react-icons/bs";
 
 
 // Importação dos componentes criados
-import Header from "./components/Header";
+
 import CarouselSlider from "./components/CarouselSlider";
 import About from "./components/About";
 import Features from "./components/Features";

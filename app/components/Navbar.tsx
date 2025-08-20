@@ -23,7 +23,7 @@ function Navbar() {
           </div>
 
           <div className="flex-grow hidden md:flex justify-center space-x-4">
-            <a href="/" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Home</a>
+            <a href="#" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Home</a>
             <a href="#about" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">About</a>
             <a href="#service" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Services</a>
             <a href="#contact" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Contact</a>
@@ -48,7 +48,7 @@ function Navbar() {
         {/* Menu responsivo que aparece e desaparece */}
         <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
           <div className="flex flex-col space-y-4 mt-2 bg-white dark:bg-gray-800 p-4 rounded-md shadow-md">
-            <a href="/" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Home</a>
+            <a href="#" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Home</a>
             <a href="/about" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">About</a>
             <a href="/services" className="text-gray-800 dark:text-gray-200 hover:text-[#000080] dark:hover:text-blue-400">Services</a>
             </div>
