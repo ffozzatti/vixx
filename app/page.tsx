@@ -14,7 +14,7 @@ import { BsTwitterX } from "react-icons/bs";
 
 import CarouselSlider from "./components/CarouselSlider";
 import About from "./components/About";
-import Features from "./components/Features";
+//import Features from "./components/Features";
 import Service from "./components/Service";
 import Service2 from "./components/Service2";
 
@@ -24,6 +24,9 @@ import Footer from "./components/Footer";
 import SplashScreen from "./components/SplashScreen";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
+import ImageGallery from "./components/ImageGallery";
+import Testimonials from "./components/Testimonials";
+
 
 const App: React.FC = () => {
 
@@ -57,23 +60,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const featuresData = [
-    {
-      title: "Projetos Realizados",
-      value: "50+",
-      description: "Dos diferentes tipos de serviços",
-    },
-    {
-      title: "Familias impactadas",
-      value: "220+",
-      description: "Sonhos tirados do papel",
-    },
-    {
-      title: "Anos de Mercado",
-      value: "10+",
-      description: "Respeito e confiança",
-    },
-  ];
+  
 
   const serviceData = {
     title: "Etapas",
@@ -349,10 +336,11 @@ const App: React.FC = () => {
           <Navbar />
           <CarouselSlider slides={carouselData} />
           <About />
-          <Features stats={featuresData} />
+          <Testimonials />
           <Service {...serviceData} />
           <Service2 mainTitle={service2Data.mainTitle} tabs={service2Data.tabs} />
           <DividerParallax {...dividerParallaxData} />
+          <ImageGallery />
           <Contact iconBlocks={contactData} />
           <Footer {...footerData} />
         </>
