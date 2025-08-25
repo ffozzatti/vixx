@@ -93,13 +93,7 @@ const Testimonials = () => {
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7 dark:bg-neutral-800">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image
-                      className="size-8 sm:size-11.5 rounded-full"
-                      src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                      alt="Avatar"
-                      width={48}
-                      height={48}
-                    />
+                    
                   </div>
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800 dark:text-neutral-200">
@@ -126,13 +120,7 @@ const Testimonials = () => {
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7 dark:bg-neutral-800">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image
-                      className="size-8 sm:size-11.5 rounded-full"
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                      alt="Avatar"
-                      width={48}
-                      height={48}
-                    />
+                    
                   </div>
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800 dark:text-neutral-200">
@@ -159,13 +147,7 @@ const Testimonials = () => {
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7 dark:bg-neutral-800">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image
-                      className="size-8 sm:size-11.5 rounded-full"
-                      src="https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80"
-                      alt="Avatar"
-                      width={48}
-                      height={48}
-                    />
+                  
                   </div>
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800 dark:text-neutral-200">
