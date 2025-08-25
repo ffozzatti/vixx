@@ -95,7 +95,7 @@ const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
               {/* <!-- SVG Element --> */}
               <div className="hidden absolute top-0 end-0 translate-x-20 md:block lg:translate-x-20">
                 <svg
-                  className="w-16 h-auto text-orange-500"
+                  className="w-16 h-auto text-[#000080]"
                   width="121"
                   height="135"
                   viewBox="0 0 121 135"

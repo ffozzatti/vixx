@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import type { IStaticMethods } from "preline/preline";
+import Button from "./Button";
 
 // Declara a variável global do Preline para o TypeScript
 declare global {
@@ -46,18 +47,13 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ slides }) => {
                   className="h-120 md:h-[calc(100vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: `url('${slide.imageUrl}')` }}
                 >
-                  <div className="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10">
+                  <div className="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10 text-shadow-lg ">
                     <span className="block text-white">{slide.brand}</span>
-                    <span className="block text-white text-xl md:text-3xl">
+                    <span className="block text-white text-xl md:text-3xl text-shadow-lg ">
                       {slide.title}
                     </span>
                     <div className="mt-5">
-                      <a
-                        className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white border border-transparent text-black hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#"
-                      >
-                        Read Case Studies
-                      </a>
+                      <Button name={"Contact us"} url={"#"} />
                     </div>
                   </div>
                 </div>

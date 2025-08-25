@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Button from "./Button";
 
 // Define a estrutura para cada bloco de ícone na parte inferior
 interface IconBlockProps {
@@ -16,7 +17,7 @@ interface ContactProps {
   iconBlocks: IconBlockProps[];
 }
 
-const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
+const Contact: React.FC<ContactProps> = () => {
   // Estado para armazenar os dados do formulário
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -47,7 +48,7 @@ const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
 
   return (
     // <!-- Contact Us -->
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950">
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950" id="contact">
       <div className="max-w-xl mx-auto">
         <div className="text-center">
           <h1 className="text-3xl font-bold  sm:text-4xl ">Contact us</h1>
@@ -160,13 +161,8 @@ const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
             </div>
             {/* <!-- End Grid --> */}
 
-            <div className="mt-6 grid">
-              <button
-                type="submit"
-                className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-              >
-                Send inquiry
-              </button>
+            <div className="mt-6 grid text-center">
+              <Button name={"Send"} url={"#"} />
             </div>
 
             <div className="mt-3 text-center">
@@ -179,46 +175,7 @@ const Contact: React.FC<ContactProps> = ({ iconBlocks }) => {
         {/* <!-- End Card --> */}
       </div>
 
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-4 lg:gap-8">
-        {iconBlocks.map((block, index) => (
-          // <!-- Icon Block -->
-          <a
-            key={index}
-            className="group flex flex-col h-full text-center rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
-            href={block.href}
-          >
-            <div className="size-9 mx-auto">
-              {block.icon}
-            </div>
-            <div className="mt-5">
-              <h3 className="text-lg font-semibold">
-                {block.title}
-              </h3>
-              <p className="mt-1 text-gray-500 dark:text-neutral-500">
-                {block.description}
-              </p>
-              <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
-                {block.linkText}
-                <svg
-                  className="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </p>
-            </div>
-          </a>
-          // <!-- End Icon Block -->
-        ))}
-      </div>
+      
     </div>
     // <!-- End Contact Us -->
   );

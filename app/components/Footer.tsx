@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8 text-center">
         {/* <!-- About Us --> */}
         <div>
           <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">
@@ -82,17 +82,17 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* <!-- Social Media --> */}
-        <div>
+        <div className="text-center ">
           <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">
             Follow Us
           </h3>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-center">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.href}
                 aria-label={social.label}
-                className="hover:opacity-80"
+                className="hover:opacity-80 "
               >
                 {social.icon}
               </a>

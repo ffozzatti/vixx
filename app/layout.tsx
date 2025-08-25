@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PrelineScript from "./components/PrelineScript";
 
 
 import "./globals.css";
@@ -24,6 +25,9 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <main>{children}</main>
+
+        {/* Adiciona o script da Preline para garantir a interatividade dos componentes */}
+        <PrelineScript />
 
      
       </body>
