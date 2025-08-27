@@ -7,7 +7,7 @@ const About: React.FC = () => {
     <section id="about">
       <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="bg-[#000080] p-8 md:p-12 lg:px-16 lg:py-24">
+          <div className="bg-[#01122E] p-8 md:p-12 lg:px-16 lg:py-24">
             <div className="mx-auto max-w-xl text-center">
               <h2 className="text-2xl font-bold text-white md:text-3xl">
                 Engenharia que transforma o futuro.

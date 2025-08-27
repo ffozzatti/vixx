@@ -31,7 +31,7 @@ const Service: React.FC<ServiceProps> = ({
   };
 
   return (
-    <div className="bg-[#000080]" id="service">
+    <div className="bg-[#01122E]" id="service">
       <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
         <div className="max-w-3xl mb-10 lg:mb-14">
           <h2 className="text-white font-semibold text-2xl md:text-4xl md:leading-tight">
@@ -43,7 +43,7 @@ const Service: React.FC<ServiceProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
           <div className="aspect-w-16 aspect-h-9 lg:aspect-none">
             <Image
-              className="w-full object-cover rounded-xl"
+              className="w-80 object-cover rounded-xl"
               src={imageUrl}
               alt="Features Image"
               width={480}
