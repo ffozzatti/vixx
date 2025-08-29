@@ -16,7 +16,7 @@ const images = [
 
 const ImageGallery: React.FC = () => {
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div  className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto " id="portifolio">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <div className="space-y-2">
           {images.slice(0, 3).map((src, index) => (

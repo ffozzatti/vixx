@@ -48,10 +48,14 @@ function Navbar() {
           <div className="flex-grow hidden md:flex justify-center space-x-4">
             {/* Alteração 2 e 3: Cor do texto dinâmica e novo hover */}
             <a href="#" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Home</a>
-            <a href="#about" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>About</a>
+
+            <a href="#about" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Our Story</a>
+
             <a href="#service" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Services</a>
-            <a href="#service" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Portifolio</a>
-            <a href="#contact" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Contact</a>
+
+            <a href="#portifolio" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Portfolio</a>
+
+            <a href="#contact" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Contact us</a>
           </div>
 
           <div className="hidden md:block">

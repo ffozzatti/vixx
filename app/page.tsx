@@ -42,19 +42,19 @@ const App: React.FC = () => {
 
   const carouselData = [
     {
-      brand: "Futuro.",
-      title: "Projetamos o futuro, um pilar de cada vez.",
+      brand: "Future.",
+      title: "Every structure begins with a vision.",
       imageUrl: "/assets/banner-1.jpeg",
     },
     {
-      brand: "Sonhos",
-      title: "Seu objetivo é nosso ponto de partida. Nossa expertise é o caminho.",
+      brand: "Dreams",
+      title: "Your future begins with an idea, we turn it into reality.",
       imageUrl:
         "/assets/banner-2.jpeg",
     },
     {
-      brand: "Credibildiade",
-      title: "Construindo parcerias sólidas para resultados duradouros.",
+      brand: "Credibility",
+      title: "We build more than homes — we build partnerships for life.",
       imageUrl:
         "/assets/banner-3.jpeg",
     },
@@ -70,20 +70,32 @@ const App: React.FC = () => {
       "/assets/logo_alt.png",
     steps: [
       {
-        title: "Reunião de alinhamento",
-        description: "Descrição da etapa 1",
+        title: "Initial consultation:",
+        description: "Understanding the client’s expectations, dreams, and vision; discussing color and material preferences; and establishing a clear budget.",
       },
       {
-        title: "Proposta comercial",
-        description: "Descrição da etapa 2",
+        title: "Design and blueprints",
+        description: "In this step, we define layouts, materials, and finishes in detailed blueprints to bring clarity before construction begins.",
       },
       {
-        title: "Desenvolvimento do projeto",
-        description: "Descrição da etapa 3",
+        title: "Free estimate",
+        description: "We provide a detailed estimate that defines project scope, timelines, and costs with full transparency.",
       },
       {
-        title: "Construção",
-        description: "Descrição da etapa 4",
+        title: "Contract signing",
+        description: "With the contract signed, all project details, deadlines, and responsibilities are officially secured.",
+      },
+       {
+        title: "Permit application and mobilization",
+        description: "We manage permit applications and prepare the site with crews, materials, and equipment for a smooth project",
+      },
+       {
+        title: "Let’s start building",
+        description: "The building phase begins — our team executes the approved plans with precision, safety, and quality.",
+      },
+       {
+        title: "Project delivery:",
+        description: "We complete the project and deliver it ready for you to enjoy, ensuring every detail meets our quality standards.",
       },
     ],
   };

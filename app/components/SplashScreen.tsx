@@ -13,7 +13,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
     // Apenas um timer para remover a splash screen da tela
     const timer = setTimeout(() => {
       onFinish();
-    }, 2500); // 5000ms da espera + 500ms da animação de saída
+    }, 3500); // 5000ms da espera + 500ms da animação de saída
 
     return () => clearTimeout(timer);
   }, [onFinish]);
@@ -34,7 +34,7 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         width={250}
         height={250}
       />
-      <p className="text-white text-lg mt-2">Bulding dreams</p>
+      <p className="text-white text-lg mt-2">We build more than homes - We build trust</p>
     </motion.div>
   );
 }
