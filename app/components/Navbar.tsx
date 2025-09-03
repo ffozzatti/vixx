@@ -30,11 +30,10 @@ function Navbar() {
     <div>
       <nav
         className={`fixed top-0 left-0 w-full z-50 p-2 transition-colors duration-300 ease-in-out ${
-          // Alteração 1: Fundo inicial branco (bg-white)
           isScrolled ? 'bg-[#01122E] shadow-lg' : 'bg-white shadow-md'
-          }`}
+        }`}
       >
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex justify-between items-center relative">
           <div className="text-2xl font-bold flex items-center gap-2">
             <Image
               className="drop-shadow-xl"
@@ -46,16 +45,15 @@ function Navbar() {
           </div>
 
           <div className="flex-grow hidden md:flex justify-center space-x-4">
-            {/* Alteração 2 e 3: Cor do texto dinâmica e novo hover */}
-            <a href="#" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Home</a>
+            <a href="#" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Home</a>
 
-            <a href="#about" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Our Story</a>
+            <a href="#about" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Our Story</a>
 
-            <a href="#service" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Services</a>
+            <a href="#service" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Services</a>
 
-            <a href="#portifolio" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Portfolio</a>
+            <a href="#portifolio" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Portfolio</a>
 
-            <a href="#contact" className={`${isScrolled ? 'text-white' : 'text-gray-800'} hover:text-[#01122E] dark:hover:text-blue-400`}>Contact us</a>
+            <a href="#contact" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Contact us</a>
           </div>
 
           <div className="hidden md:block">
@@ -64,7 +62,6 @@ function Navbar() {
 
           <div className="md:hidden">
             <button
-              // Cor do ícone do menu também muda dinamicamente
               className={`${isScrolled ? 'text-white' : 'text-gray-800'} cursor-pointer`}
               onClick={toggleMobileMenu}
             >
@@ -75,12 +72,27 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Menu responsivo que aparece e desaparece */}
-        <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="flex flex-col space-y-4 mt-2 bg-white dark:bg-gray-800 p-4 rounded-md shadow-md">
-            <a href="#" className="text-gray-800 dark:text-gray-200 hover:text-[#01122E] dark:hover:text-blue-400">Home</a>
-            <a href="/about" className="text-gray-800 dark:text-gray-200 hover:text-[#01122E] dark:hover:text-blue-400">About</a>
-            <a href="/services" className="text-gray-800 dark:text-gray-200 hover:text-[#01122E] dark:hover:text-blue-400">Services</a>
+        {/* Menu responsivo que ocupa a tela toda */}
+        <div className={`
+          md:hidden
+          ${isMobileMenuOpen ? 'fixed inset-0 z-50' : 'hidden'}
+          bg-[#01122E]
+          text-white
+          transition-opacity duration-300 ease-in-out
+        `}>
+          {/* Botão de fechar */}
+          <button 
+            className="absolute top-4 right-4 text-white text-3xl font-bold" 
+            onClick={toggleMobileMenu}
+          >
+            &times;
+          </button>
+          <div className="flex flex-col items-center justify-center h-full space-y-4 text-3xl font-medium">
+            <a href="#" onClick={toggleMobileMenu}>Home</a>
+            <a href="#about" onClick={toggleMobileMenu}>Our Story</a>
+            <a href="#service" onClick={toggleMobileMenu}>Services</a>
+            <a href="#portifolio" onClick={toggleMobileMenu}>Portfolio</a>
+            <a href="#contact" onClick={toggleMobileMenu}>Contact us</a>
           </div>
         </div>
       </nav>

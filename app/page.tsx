@@ -353,7 +353,7 @@ const App: React.FC = () => {
           <Service2 mainTitle={service2Data.mainTitle} tabs={service2Data.tabs} />
           <DividerParallax {...dividerParallaxData} />
           <ImageGallery />
-          <Contact iconBlocks={contactData} />
+          <Contact />
           <Footer {...footerData} />
         </>
       )}

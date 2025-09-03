@@ -33,7 +33,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ slides }) => {
 
   return (
     // <!-- Slider -->
-    <div className="px-4 sm:px-6 lg:px-8 py-10">
+    <div className="px-4 sm:px-6 lg:px-8 py-10 my-20">
       <div
         data-hs-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true }'
         className="relative"
