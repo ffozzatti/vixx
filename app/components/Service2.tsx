@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 
 interface ServiceTab {
   id: string;
@@ -19,8 +20,21 @@ interface Service2Props {
 const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
   const [textHasAppeared, setTextHasAppeared] = useState(false);
   const [imageHasAppeared, setImageHasAppeared] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id || "");
+  const [expandedItemIdMobile, setExpandedItemIdMobile] = useState<string | null>(null);
+
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+  useEffect(() => {
+    // Sincroniza o estado de expansão mobile com o estado ativo do desktop
+    if (isDesktop && activeTab !== expandedItemIdMobile) {
+      setExpandedItemIdMobile(activeTab);
+    }
+  }, [isDesktop, activeTab, expandedItemIdMobile]);
+
 
   useEffect(() => {
     const textObserver = new IntersectionObserver(
@@ -60,25 +74,33 @@ const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
     };
   }, [textHasAppeared, imageHasAppeared]);
 
+  const handleButtonClick = (id: string) => {
+    if (isDesktop) {
+      setActiveTab(id);
+    } else {
+      setExpandedItemIdMobile(expandedItemIdMobile === id ? null : id);
+    }
+  };
+
   return (
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
       <div className="relative p-6 md:p-16">
         <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-          {/* Seção da Imagem */}
+          {/* Seção da Imagem - Visível APENAS em desktop */}
           <div
             ref={imageRef}
             className={`
-              lg:col-span-6
+              hidden lg:block lg:col-span-6
               transform transition-all duration-1000 ease-in-out
               ${imageHasAppeared ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
             `}
           >
             <div className="relative h-full">
-              {tabs.map((tab, index) => (
+              {tabs.map((tab) => (
                 <div
                   key={tab.id}
                   id={tab.id}
-                  className={index === 0 ? "" : "hidden"}
+                  className={activeTab === tab.id ? "" : "hidden"}
                   role="tabpanel"
                   aria-labelledby={`${tab.id}-item`}
                 >
@@ -122,6 +144,7 @@ const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
               </div>
             </div>
           </div>
+
           {/* Seção do Texto e Abas */}
           <div
             ref={textRef}
@@ -141,38 +164,61 @@ const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
               role="tablist"
               aria-orientation="vertical"
             >
-              {tabs.map((tab, index) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  className={`hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-xl ${index === 0 ? "active" : ""}`}
-                  id={`${tab.id}-item`}
-                  aria-selected={index === 0}
-                  data-hs-tab={`#${tab.id}`}
-                  aria-controls={tab.id}
-                  role="tab"
-                >
-                  <span className="flex gap-x-6">
-                    <span className="shrink-0 mt-2 size-6 md:size-7 hs-tab-active:text-blue-600 text-gray-800">
-                      {tab.icon}
-                    </span>
-                    <span className="grow">
-                      <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800">
-                        {tab.title}
+              {tabs.map((tab) => (
+                <div key={tab.id}>
+                  <button
+                    type="button"
+                    className={`
+                      w-full text-start p-4 md:p-5 rounded-xl
+                      ${isDesktop ? "hover:bg-gray-200" : "cursor-pointer"}
+                      ${isDesktop && activeTab === tab.id ? "bg-white shadow-md border border-transparent" : ""}
+                      ${!isDesktop && expandedItemIdMobile === tab.id ? "bg-white shadow-md border border-transparent" : ""}
+                    `}
+                    id={`${tab.id}-item`}
+                    aria-selected={isDesktop ? activeTab === tab.id : expandedItemIdMobile === tab.id}
+                    aria-controls={tab.id}
+                    role="tab"
+                    onClick={() => handleButtonClick(tab.id)}
+                  >
+                    <span className="flex gap-x-6">
+                      <span className="shrink-0 mt-2 size-6 md:size-7 text-gray-800">
+                        {tab.icon}
                       </span>
-                      <span className="block mt-1 text-gray-800">
-                        {tab.description}
+                      <span className="grow">
+                        <span className="block text-lg font-semibold text-gray-800">
+                          {tab.title}
+                        </span>
+                        <span className="block mt-1 text-gray-800">
+                          {tab.description}
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </button>
+                  </button>
+                  {/* Imagem que aparece em telas menores com o efeito de expansão */}
+                  {!isDesktop && (
+                    <div
+                      className={`
+                        transition-all duration-300 ease-in-out overflow-hidden
+                        ${expandedItemIdMobile === tab.id ? "max-h-[1000px] mt-4 opacity-100" : "max-h-0 opacity-0"}
+                      `}
+                    >
+                      <Image
+                        className="shadow-xl shadow-gray-200 rounded-xl w-full h-auto object-cover"
+                        src={tab.imageUrl}
+                        alt={`${tab.title} feature image`}
+                        width={560}
+                        height={720}
+                      />
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
           </div>
         </div>
         {/* Fundo cinza */}
         <div className="absolute inset-0 grid grid-cols-12 size-full">
-          <div className="col-span-full lg:col-span-7 lg:col-start-6 bg-gray-100 w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full"></div>
+          <div className="col-span-full lg:col-span-7 lg:col-start-6 bg-gray-100 w-full h-full rounded-xl"></div>
         </div>
       </div>
     </div>

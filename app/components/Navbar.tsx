@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Button from './Button';
+import ButtonBlue from './ButtonBlue';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -57,7 +57,7 @@ function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button name={"More"} url={"../pages/Contact"} />
+            <ButtonBlue name={"More"} url={"../pages/Contact"} />
           </div>
 
           <div className="md:hidden">

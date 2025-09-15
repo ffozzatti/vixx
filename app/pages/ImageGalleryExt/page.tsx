@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Button from '@/app/components/ButtonForm';
 
-import ButtonBlue from './ButtonBlue';
 
 const images = [
   '/assets/img-1.jpeg',
@@ -18,7 +18,7 @@ const images = [
   '/assets/img-10.jpeg',
 ];
 
-const ImageGallery: React.FC = () => {
+const ImageGalleryExt: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const openModal = (src: string) => {
@@ -93,15 +93,9 @@ const ImageGallery: React.FC = () => {
         </div>
       )}
 
-    <div className='text-center p-8' >
-
-     <ButtonBlue name={'View More'} url={'../pages/ImageGalleryExt'} />
-
-    </div>
-
-
+    
     </div>
   );
 };
 
-export default ImageGallery;
+export default ImageGalleryExt;

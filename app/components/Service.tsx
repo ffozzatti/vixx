@@ -4,13 +4,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import ButtonInverse from './ButtonInverse';
 
-// Define a estrutura de um passo da timeline
 interface TimelineStep {
   title: string;
   description: string;
 }
 
-// Define as props que o componente Service irá receber
 interface ServiceProps {
   title: string;
   description: string;
@@ -68,7 +66,7 @@ const Service: React.FC<ServiceProps> = ({
                   </div>
                 </div>
 
-                <div className="grow pt-0.5 pb-8 sm:pb-12">
+                <div className="grow pt-0.5 pb-8 sm:pb-8">
                   <button
                     className="flex items-center w-full text-left focus:outline-none"
                     onClick={() => handleToggle(index)}

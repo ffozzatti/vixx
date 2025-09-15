@@ -7,6 +7,7 @@ import { useState } from "react";
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsTwitterX } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
 
 
 
@@ -63,9 +64,9 @@ const App: React.FC = () => {
   
 
   const serviceData = {
-    title: "Etapas",
+    title: "Steps",
     description:
-      "A Ideia aqui é mostrar como a empresa trabalha, quais são as etapas do serviço prestado.",
+      "Discover how we turn your vision into reality",
     imageUrl:
       "/assets/logo_alt.png",
     steps: [
@@ -297,7 +298,7 @@ const App: React.FC = () => {
 
   const footerData = {
     aboutText:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.",
+      "VIX Construction is a family-owned company born from overcoming adversity, driven by a passion for building homes and trust, and turning challenges into quality projects and lasting partnerships.",
     usefulLinks: [
 
       { href: "#", text: "Terms of Service" },
@@ -318,20 +319,13 @@ const App: React.FC = () => {
       },
       {
         href: "#",
-        label: "Linkedin",
-        icon: (
-          <BsLinkedin />
-        ),
-      },
-      {
-        href: "#",
         label: "X",
         icon: (
-          <BsTwitterX />
+          <BsYoutube />
         ),
       },
     ],
-    copyrightText: "Your Company",
+    copyrightText: "VixxConstruction",
   };
 
   return (

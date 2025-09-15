@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/ButtonForm";
+import ButtonForm from "@/app/components/ButtonForm";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -106,7 +107,7 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
         <div className="mt-6 grid text-center">
-          <Button name={"Send"} url={"#"} />
+          <ButtonForm name={"Send"} url={"#"} />
         </div>
         <div className="mt-3 text-center">
           <p className="text-sm text-gray-500 dark:text-neutral-500">

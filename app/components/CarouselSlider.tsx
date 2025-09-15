@@ -2,7 +2,8 @@
 
 import React, { useEffect } from "react";
 import type { IStaticMethods } from "preline/preline";
-import Button from "./Button";
+
+import ButtonBlue from "./ButtonBlue";
 
 // Declara a variável global do Preline para o TypeScript
 declare global {
@@ -53,7 +54,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ slides }) => {
                       {slide.title}
                     </span>
                     <div className="mt-5">
-                      <Button name={"Contact us"} url={"#"} />
+                      <ButtonBlue name={"More"} url={"../pages/Contact"} />
                     </div>
                   </div>
                 </div>

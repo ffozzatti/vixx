@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import Button from "./Button";
+import Button from "./ButtonForm";
 import { useForm, ValidationError } from "@formspree/react";
+import ButtonForm from "./ButtonForm";
 
 const Contact: React.FC = () => {
   const [state, handleSubmit] = useForm("xeolrzqz");
@@ -87,6 +88,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="phoneNumber"
                     id="phoneNumber"
+                    placeholder="(nnn) nnn-nnnn "
                     className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 border-2 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                   />
                   <ValidationError prefix="Phone Number" field="phoneNumber" errors={state.errors} />
@@ -109,7 +111,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="mt-6 grid text-center">
-              <Button name={"Send"} type="submit" disabled={state.submitting} url={"#"} />
+              <ButtonForm name={"Send"} type="submit" disabled={state.submitting} url={"#"} />
             </div>
 
             <div className="mt-3 text-center">

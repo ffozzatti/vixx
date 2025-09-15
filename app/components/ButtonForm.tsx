@@ -8,14 +8,14 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ name, type = "button", disabled = false }) => {
+const ButtonForm: React.FC<ButtonProps> = ({ name, type = "button", disabled = false, url }) => {
   return (
     <div>
       <button
         // Use a tag <button> para formulários
         type={type}
         disabled={disabled}
-        className="group inline-flex items-center justify-center gap-x-2 py-2 px-8 bg-[#01122E] hover:bg-white font-medium text-sm text-white hover:text-[#01122E] border-2 border-[#EEE] hover:border-solid rounded-full focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none"
+        className=" cursor-pointer group inline-flex items-center justify-center gap-x-2 py-2 px-8 bg-[#01122E] hover:bg-white font-medium text-sm text-white hover:text-[#01122E] border-2 border-[#EEE] hover:border-solid rounded-full focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none"
       >
         {name}
       </button>
@@ -23,4 +23,4 @@ const Button: React.FC<ButtonProps> = ({ name, type = "button", disabled = false
   );
 };
 
-export default Button;
+export default ButtonForm;
