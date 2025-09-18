@@ -56,7 +56,7 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="overflow-hidden">
-      <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {/* Container do Texto com Animação (Item do Grid) */}
           <div
@@ -71,7 +71,7 @@ const About: React.FC = () => {
               <h2 className="text-2xl font-bold text-white md:text-3xl pb-4">
                 Our story
               </h2>
-              <p className="hidden text-white/90 sm:mt-4 sm:block text-justify">
+              <p className=" text-white/90 sm:mt-4 sm:block text-justify">
                 Every strong foundation starts with a challenge.
                 VIX Construction was born during a difficult moment, when the desire to grow and provide a better life for our family became the driving force behind our work. What started as a way to overcome adversity quickly turned into a passion for building — not just homes, but also trust, stability, and opportunities.
                 <br /><br />

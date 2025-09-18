@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
+import { BsHouse } from "react-icons/bs";
 
 interface ServiceTab {
   id: string;
@@ -180,19 +181,17 @@ const Service2: React.FC<Service2Props> = ({ mainTitle, tabs }) => {
                     role="tab"
                     onClick={() => handleButtonClick(tab.id)}
                   >
-                    <span className="flex gap-x-6">
-                      <span className="shrink-0 mt-2 size-6 md:size-7 text-gray-800">
-                        {tab.icon}
-                      </span>
-                      <span className="grow">
-                        <span className="block text-lg font-semibold text-gray-800">
-                          {tab.title}
-                        </span>
-                        <span className="block mt-1 text-gray-800">
-                          {tab.description}
-                        </span>
-                      </span>
-                    </span>
+                    <div className="flex items-center gap-x-6">
+  <div className="shrink-0 size-6 md:size-7 text-gray-800">
+    <BsHouse className="h-full w-full"/>
+  </div>
+  <div className="grow">
+    <span className="block text-lg font-semibold text-gray-800">
+      {tab.title}
+    </span>
+  </div>
+</div>
+
                   </button>
                   {/* Imagem que aparece em telas menores com o efeito de expansão */}
                   {!isDesktop && (

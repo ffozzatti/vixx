@@ -46,7 +46,7 @@ const ImageGallery: React.FC = () => {
   };
 
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" id="portifolio">
+    <div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 lg:py-8 mx-auto" id="portifolio">
       <h2 className="text-2xl font-bold text-[#01122E] md:text-3xl pb-4 text-center mt-20">
         Portifolio
       </h2>

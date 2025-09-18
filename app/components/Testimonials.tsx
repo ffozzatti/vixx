@@ -72,7 +72,7 @@ const Testimonials = () => {
       // Re-inicia a animação se a seção de stats estiver visível
       if (statsInView) {
         let start = 0;
-        const duration = 1500;
+        const duration = 2000;
         const increment = targetNumber / (duration / 10);
         const timer = setInterval(() => {
           start += increment;
@@ -106,7 +106,7 @@ const Testimonials = () => {
         {/* Título */}
         <div className="max-w-2xl w-3/4 lg:w-1/2 mb-6 sm:mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold">
-            Loved by business and individuals across the globe
+            See what our clients have to say about the quality and professionalism of our projects.
           </h2>
         </div>
         {/* Fim do Título */}
@@ -203,25 +203,25 @@ const Testimonials = () => {
         >
           {/* Estatística 1 */}
           <div>
-            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Accuracy rate</h4>
-            <AnimatedNumber targetNumber={99.95} unit="%" isPercentage />
-            <p className="mt-1 text-gray-400">in fulfilling orders</p>
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Year in business</h4>
+            <AnimatedNumber targetNumber={8} unit="+" />
+           
           </div>
           {/* Fim da Estatística 1 */}
 
           {/* Estatística 2 */}
           <div>
-            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Startup businesses</h4>
-            <AnimatedNumber targetNumber={2000} unit="+" />
-            <p className="mt-1 text-gray-400">partner with Preline</p>
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Satisfied clients</h4>
+            <AnimatedNumber targetNumber={400} unit="+" />
+        
           </div>
           {/* Fim da Estatística 2 */}
 
           {/* Estatística 3 */}
           <div>
-            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Happy customer</h4>
-            <AnimatedNumber targetNumber={85} unit="%" />
-            <p className="mt-1 text-gray-400">this year alone</p>
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Completed projects</h4>
+            <AnimatedNumber targetNumber={800} unit="+" />
+         
           </div>
           {/* Fim da Estatística 3 */}
         </div>

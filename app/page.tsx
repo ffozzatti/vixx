@@ -8,6 +8,8 @@ import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsTwitterX } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
+import { BsHouse } from "react-icons/bs";
+
 
 
 
@@ -102,114 +104,54 @@ const App: React.FC = () => {
   };
 
   const service2Data = {
-    mainTitle: "Aqui Vamos colocar os tipo de serviços que voces fazem",
+    mainTitle: "Some of our completed services",
     tabs: [
       {
         id: "tabs-with-card-1",
-        title: "Construção de Decks",
-        description:
-          "Descrição",
-        imageUrl:
-          "/assets/service-1.jpeg",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
-            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
-            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
-          </svg>
-        ),
-      },
-      {
-        id: "tabs-with-card-2",
-        title: "Reforma de interiores",
-        description:
-          "Descrição",
-        imageUrl:
-          "/assets/service-2.jpeg",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
-            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
-            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
-          </svg>
-        ),
-      },
-      {
-        id: "tabs-with-card-3",
-        title: "Construção de escadas",
-        description:
-          "Descrição",
-        imageUrl:
-          "/assets/service-3.jpeg",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
-            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
-            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
-          </svg>
-        ),
-      },
-      {
-        id: "tabs-with-card-4",
-        title: "Estruturação de casas",
+        title: "New construction",
         description:
           "Descrição",
         imageUrl:
           "/assets/service-4.jpeg",
         icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
-            <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
-            <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
-            <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
-          </svg>
+          <BsHouse />
+
+        ),
+      },
+      {
+        id: "tabs-with-card-2",
+        title: "Additions",
+        description:
+          "Descrição",
+        imageUrl:
+          "/assets/service-2.jpeg",
+        icon: (
+        <BsHouse />
+
+        ),
+      },
+      {
+        id: "tabs-with-card-3",
+        title: "Remodeling",
+        description:
+          "Descrição",
+        imageUrl:
+          "/assets/service-3.jpeg",
+        icon: (
+          <BsHouse />
+
+        ),
+      },
+      {
+        id: "tabs-with-card-4",
+        title: "Decks",
+        description:
+          "Descrição",
+        imageUrl:
+          "/assets/service-1.jpeg",
+        icon: (
+          <BsHouse />
+
         ),
       },
 
@@ -219,9 +161,9 @@ const App: React.FC = () => {
   const dividerParallaxData = {
     backgroundImageUrl:
       "/assets/paralax-image.jpeg",
-    title: " Construímos seu próximo projeto",
+    title: "Your project starts here",
     description:
-      "Vamos dar vida à sua visão. Entre em contato conosco para discutirmos como nossa experiência em engenharia pode transformar suas ideias em realidade, com soluções inovadoras e personalizadas.",
+      "Let’s build together",
     buttonText: "Get Yours Today",
   };
 

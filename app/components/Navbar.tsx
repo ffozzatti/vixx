@@ -35,9 +35,10 @@ function Navbar() {
       >
         <div className="container mx-auto flex justify-between items-center relative">
           <div className="text-2xl font-bold flex items-center gap-2">
+            
             <Image
               className="drop-shadow-xl"
-              src="/assets/logo_alt.png"
+              src={isScrolled ? '/assets/logo_alt.png' : '/assets/logo_azul.svg'}
               alt="Logo"
               width={90}
               height={90}

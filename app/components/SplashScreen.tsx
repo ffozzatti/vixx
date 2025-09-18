@@ -29,10 +29,10 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
       <Image
         src="/assets/logo_alt.png"
         alt="Logo"
-        width={250}
-        height={250}
+        width={150}
+        height={150}
       />
-      <p className="text-gray-400 -mt-20 font-['Cinzel'] text-lg text-center">We build more than homes - We build trust</p>
+      <p className="text-gray-400 -mt-5 font-serif text-sm text-center">We build more than homes - We build trust</p>
     </motion.div>
   );
 }
