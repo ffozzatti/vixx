@@ -47,19 +47,19 @@ const App: React.FC = () => {
     {
       brand: "Future.",
       title: "Every structure begins with a vision.",
-      imageUrl: "/assets/banner-1.jpeg",
+      imageUrl: "/assets/banner_1.jpg",
     },
     {
       brand: "Dreams",
       title: "Your future begins with an idea, we turn it into reality.",
       imageUrl:
-        "/assets/banner-2.jpeg",
+        "/assets/banner_2.jpg",
     },
     {
       brand: "Credibility",
       title: "We build more than homes — we build partnerships for life.",
       imageUrl:
-        "/assets/banner-3.jpeg",
+        "/assets/banner_3.jpg",
     },
   ];
 
@@ -104,7 +104,7 @@ const App: React.FC = () => {
   };
 
   const service2Data = {
-    mainTitle: "Some of our completed services",
+    mainTitle: "Expert services designed to transform your home",
     tabs: [
       {
         id: "tabs-with-card-1",
