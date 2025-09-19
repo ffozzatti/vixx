@@ -93,7 +93,7 @@ const About: React.FC = () => {
           <div
             ref={imagesRef}
             className={`
-              grid grid-cols-1 gap-4 
+              grid grid-cols-1 gap-4
               transform transition-all duration-1000 ease-in-out delay-500
               ${imagesAreVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
             `}
@@ -110,7 +110,7 @@ const About: React.FC = () => {
               src="/assets/about-2.jpeg"
               width={774}
               height={800}
-              className="h-full w-full object-cover mt-8"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>
