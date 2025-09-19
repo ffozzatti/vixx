@@ -247,27 +247,27 @@ const App: React.FC = () => {
       { href: "#", text: "Privacy Policy" },
     ],
     contactInfo: {
-      email: "support@vixconstruction.com",
-      phone: "(123) 456-7890",
-      address: "123 Main Street, Anytown, USA",
+      email: "office@vixconstructionllc.com",
+      phone: "(774) 285-1599",
+      address: "Northborough, Massachusetts",
     },
     socialLinks: [
       {
-        href: "#",
+        href: "https://www.instagram.com/vixconstructionllc/",
         label: "Instagram",
         icon: (
           <BsInstagram />
         ),
       },
       {
-        href: "#",
-        label: "X",
+        href: "https://www.youtube.com/@VixConstructionLLC",
+        label: "YouTube",
         icon: (
           <BsYoutube />
         ),
       },
     ],
-    copyrightText: "VixxConstruction",
+    copyrightText: "VixConstructionllc",
   };
 
   return (

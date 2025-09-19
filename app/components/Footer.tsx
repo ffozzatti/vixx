@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({
             Phone: {contactInfo.phone}
           </p>
           <p className="text-gray-500 dark:text-gray-400">
-            Address: {contactInfo.address}
+            {contactInfo.address}
           </p>
         </div>
 
@@ -92,6 +92,7 @@ const Footer: React.FC<FooterProps> = ({
                 key={index}
                 href={social.href}
                 aria-label={social.label}
+                target="_blank"
                 className="hover:opacity-80 "
               >
                 {social.icon}

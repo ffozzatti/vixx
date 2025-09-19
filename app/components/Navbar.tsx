@@ -38,7 +38,7 @@ function Navbar() {
             
             <Image
               className="drop-shadow-xl"
-              src={isScrolled ? '/assets/logo_alt.png' : '/assets/logo_azul.svg'}
+              src={isScrolled ? '/assets/logo_alt.png' : '/assets/logo_azul.png'}
               alt="Logo"
               width={90}
               height={90}
@@ -50,7 +50,9 @@ function Navbar() {
 
             <a href="#about" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Our Story</a>
 
-            <a href="#service" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Services</a>
+            <a href="#service" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Steps</a>
+
+            <a href="#service2" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Services</a>
 
             <a href="#portifolio" className={`${isScrolled ? 'text-white hover:underline' : 'text-gray-800 hover:text-[#01122E]'}`}>Portfolio</a>
 
@@ -91,7 +93,8 @@ function Navbar() {
           <div className="flex flex-col items-center justify-center h-full space-y-4 text-3xl font-medium">
             <a href="#" onClick={toggleMobileMenu}>Home</a>
             <a href="#about" onClick={toggleMobileMenu}>Our Story</a>
-            <a href="#service" onClick={toggleMobileMenu}>Services</a>
+            <a href="#service" onClick={toggleMobileMenu}>Steps</a>
+            <a href="#service2" onClick={toggleMobileMenu}>Services</a>
             <a href="#portifolio" onClick={toggleMobileMenu}>Portfolio</a>
             <a href="#contact" onClick={toggleMobileMenu}>Contact us</a>
           </div>
