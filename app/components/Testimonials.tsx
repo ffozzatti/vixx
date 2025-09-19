@@ -204,7 +204,7 @@ const Testimonials = () => {
           {/* Estatística 1 */}
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Year in business</h4>
-            <AnimatedNumber targetNumber={8} unit="+" />
+            <AnimatedNumber targetNumber={4} unit="+" />
            
           </div>
           {/* Fim da Estatística 1 */}

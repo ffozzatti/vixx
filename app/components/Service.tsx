@@ -41,11 +41,11 @@ const Service: React.FC<ServiceProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
           <div className="aspect-w-16 aspect-h-9 lg:aspect-none">
             <Image
-              className="w-80 object-cover rounded-xl lg:ml-35"
+              className="w-80 object-cover ml-35"
               src={imageUrl}
               alt="Features Image"
-              width={480}
-              height={600}
+              width={600}
+              height={700}
             />
           </div>
 
