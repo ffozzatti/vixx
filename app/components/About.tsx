@@ -103,14 +103,14 @@ const About: React.FC = () => {
               src="/assets/about-1.jpeg"
               width={654}
               height={800}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover border-2 border-red-700 pb-4"
             />
             <Image
               alt="Pessoa sorrindo e usando óculos"
               src="/assets/about-2.jpeg"
               width={774}
               height={800}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover border-2 border-red-700 pt-4"
             />
           </div>
         </div>
