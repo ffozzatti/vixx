@@ -112,7 +112,7 @@ const App: React.FC = () => {
         description:
           "Descrição",
         imageUrl:
-          "/assets/service-4.jpeg",
+          "/assets/service_4.jpg",
         icon: (
           <BsHouse />
 
@@ -124,7 +124,7 @@ const App: React.FC = () => {
         description:
           "Descrição",
         imageUrl:
-          "/assets/service-2.jpeg",
+          "/assets/service_3.jpg",
         icon: (
         <BsHouse />
 
@@ -136,7 +136,7 @@ const App: React.FC = () => {
         description:
           "Descrição",
         imageUrl:
-          "/assets/service-3.jpeg",
+          "/assets/service-2.jpeg",
         icon: (
           <BsHouse />
 
@@ -148,7 +148,7 @@ const App: React.FC = () => {
         description:
           "Descrição",
         imageUrl:
-          "/assets/service-1.jpeg",
+          "/assets/service_2.jpg",
         icon: (
           <BsHouse />
 

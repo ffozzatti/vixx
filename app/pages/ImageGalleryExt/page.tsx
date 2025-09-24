@@ -1,101 +1,41 @@
-'use client';
-
-import React, { useState } from 'react';
+import fs from 'fs/promises';
+import path from 'path';
 import Image from 'next/image';
-import Button from '@/app/components/ButtonForm';
+import ImageGalleryExtClient from '@/app/components/ImageGalleryExtClient';
+
+// Este é um componente do lado do cliente para a galeria
+// Você pode mantê-lo em um arquivo separado, como 'components/ImageGalleryExtClient.tsx'
+// ou colocá-lo aqui mesmo para simplicidade (se for pequeno).
+// Vamos assumir que você o colocará em um arquivo separado para organização.
 
 
-const images = [
-  '/assets/img-1.jpeg',
-  '/assets/img-2.jpeg',
-  '/assets/img-9.jpeg', 
-  '/assets/img-8.jpeg',
-  '/assets/img-4.jpeg',
-  '/assets/img-6.jpeg',
-  '/assets/img-5.jpeg',
-  '/assets/img-7.jpeg',
-  '/assets/img-3.jpeg',
-  '/assets/img-10.jpeg',
-];
+// Função para buscar os caminhos das imagens do lado do servidor
+async function getImages() {
+  const publicDir = path.join(process.cwd(), 'public');
+  const galleryDir = path.join(publicDir, 'assets', 'imagens-galeria');
+  
+  try {
+    const files = await fs.readdir(galleryDir);
+    const imageFiles = files.filter(file => /\.(png|jpe?g|svg|gif|webp)$/i.test(file));
+    return imageFiles.map(file => `/assets/imagens-galeria/${file}`);
+  } catch (error) {
+    console.error("Erro ao ler o diretório da galeria:", error);
+    return []; // Retorna um array vazio para evitar erros na renderização
+  }
+}
 
-const ImageGalleryExt: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const openModal = (src: string) => {
-    setSelectedImage(src);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-
-  const renderImages = (imgs: string[]) => {
-    return imgs.map((src, index) => (
-      <Image
-        key={index}
-        className="w-full h-auto object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
-        src={src}
-        alt="Gallery Masonry Image"
-        width={560}
-        height={560}
-        quality={80}
-        priority={index < 2} // Otimiza o carregamento das primeiras imagens
-        onClick={() => openModal(src)}
-      />
-    ));
-  };
+// Esta é a sua página principal, que é um Server Component
+const FullImageGalleryPage = async () => {
+  const images = await getImages();
 
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" id="portifolio">
-      <h2 className="text-2xl font-bold text-[#01122E] md:text-3xl pb-4 text-center mt-20">
-        Portifolio
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-9">
-        <div className="space-y-2">
-          {renderImages(images.slice(0, 3))}
-        </div>
-        <div className="space-y-2">
-          {renderImages(images.slice(3, 5))}
-        </div>
-        <div className="space-y-2">
-          {renderImages(images.slice(5, 8))}
-        </div>
-        <div className="space-y-2">
-          {renderImages(images.slice(8, 10))}
-        </div>
-      </div>
-
-      {/* Modal Condicional */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
-          onClick={closeModal}
-        >
-          <div 
-            className="relative max-w-4xl max-h-[90vh] p-4"
-            onClick={(e) => e.stopPropagation()} // Impede o fechamento ao clicar na imagem
-          >
-            <button 
-              className="absolute top-4 right-4 text-white text-3xl font-bold z-10"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
-            <Image
-              src={selectedImage}
-              alt="Imagem em tela cheia"
-              width={1024}
-              height={768}
-              quality={90}
-              className="w-auto h-auto max-w-full max-h-full"
-            />
-          </div>
-        </div>
-      )}
-
-    
+    <div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 lg:py-8 mx-auto">
+      <h1 className="text-3xl font-bold text-center my-8">Portfolio</h1>
+      
+      {/* O componente cliente que gerencia o estado e o modal */}
+      <ImageGalleryExtClient images={images} />
     </div>
   );
 };
 
-export default ImageGalleryExt;
+export default FullImageGalleryPage;
