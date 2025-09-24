@@ -56,7 +56,7 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="overflow-hidden">
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 my-10">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {/* Container do Texto com Animação (Item do Grid) */}
           <div

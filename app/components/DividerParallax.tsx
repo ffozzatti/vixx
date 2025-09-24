@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "./ButtonForm";
 
-
-
 // Define a estrutura das props para o componente
 interface DividerParallaxProps {
   backgroundImageUrl: string;
@@ -16,19 +14,18 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
   backgroundImageUrl,
   title,
   description,
-
 }) => {
   // Estilo dinâmico para a imagem de fundo
   const sectionStyle = {
     backgroundImage: `url(${backgroundImageUrl})`,
   };
 
- 
-
   return (
     <section
       // A MÁGICA ACONTECE AQUI 👇
-      className="overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      // O bg-fixed agora só é aplicado em telas grandes (lg:)
+      // O bg-local é aplicado por padrão para dispositivos móveis
+      className="overflow-hidden bg-cover bg-center bg-no-repeat bg-local lg:bg-fixed"
       style={sectionStyle}
     >
       <div className="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-24 ">

@@ -97,7 +97,7 @@ const App: React.FC = () => {
         description: "The building phase begins — our team executes the approved plans with precision, safety, and quality.",
       },
        {
-        title: "Project delivery:",
+        title: "Project delivery",
         description: "We complete the project and deliver it ready for you to enjoy, ensuring every detail meets our quality standards.",
       },
     ],
