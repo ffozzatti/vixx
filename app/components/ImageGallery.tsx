@@ -21,14 +21,32 @@ const images = [
 ];
 
 const ImageGallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
-  const openModal = (src: string) => {
-    setSelectedImage(src);
+  const openModal = (index: number) => {
+    setSelectedImageIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedImageIndex(null);
+  };
+
+  const nextImage = () => {
+    setSelectedImageIndex((prevIndex) => {
+      // Se for null, retorna null para não fazer nada
+      if (prevIndex === null) return null;
+      // Calcula o próximo índice de forma circular
+      return (prevIndex + 1) % images.length;
+    });
+  };
+
+  const prevImage = () => {
+    setSelectedImageIndex((prevIndex) => {
+      // Se for null, retorna null para não fazer nada
+      if (prevIndex === null) return null;
+      // Calcula o índice anterior de forma circular
+      return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+    });
   };
 
   const renderImages = (imgs: string[]) => {
@@ -36,7 +54,7 @@ const ImageGallery: React.FC = () => {
       <div 
         key={index}
         className="w-full aspect-square relative overflow-hidden rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105"
-        onClick={() => openModal(src)}
+        onClick={() => openModal(index)}
       >
         <Image
           src={src}
@@ -44,7 +62,7 @@ const ImageGallery: React.FC = () => {
           fill
           className="object-cover object-center"
           quality={80}
-          priority={index < 2} // Otimiza o carregamento das primeiras imagens
+          priority={index < 2}
         />
       </div>
     ));
@@ -52,49 +70,60 @@ const ImageGallery: React.FC = () => {
 
   return (
     <section id="portifolio" className='py-1'>
-       <div className=" max-w-[85rem] px-4 sm:px-6 lg:px-8 lg:py-8 mx-auto" >
-      <h2 className="text-2xl font-bold text-[#01122E] md:text-3xl pb-4 text-center mt-20">
-        Portfolio
-      </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-9">
-        {renderImages(images)}
-      </div>
-
-      {/* Modal Condicional */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
-          onClick={closeModal}
-        >
-          <div 
-            className="relative max-w-4xl max-h-[90vh] p-4"
-            onClick={(e) => e.stopPropagation()} // Impede o fechamento ao clicar na imagem
-          >
-            <button 
-              className="absolute top-4 right-4 text-white text-3xl font-bold z-10"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
-            <Image
-              src={selectedImage}
-              alt="Imagem em tela cheia"
-              width={1024}
-              height={768}
-              quality={90}
-              className="w-auto h-auto max-w-full max-h-full"
-            />
-          </div>
+      <div className=" max-w-[85rem] px-4 sm:px-6 lg:px-8 lg:py-8 mx-auto" >
+        <h2 className="text-2xl font-bold text-[#01122E] md:text-3xl pb-4 text-center mt-20">
+          Portfolio
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-9">
+          {renderImages(images)}
         </div>
-      )}
 
-      <div className='text-center p-8' >
-        <ButtonBlue name={'View More'} url={'../pages/ImageGalleryExt'} />
+        {selectedImageIndex !== null && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+            onClick={closeModal}
+          >
+            <div 
+              className="relative max-w-4xl max-h-[90vh] p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="absolute top-4 right-4 text-white text-3xl font-bold z-10"
+                onClick={closeModal}
+              >
+                &times;
+              </button>
+
+              <button 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold p-2 bg-black bg-opacity-50 rounded-full"
+                onClick={prevImage}
+              >
+                &#10094;
+              </button>
+              <button 
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold p-2 bg-black bg-opacity-50 rounded-full"
+                onClick={nextImage}
+              >
+                &#10095;
+              </button>
+              
+              <Image
+                src={images[selectedImageIndex]}
+                alt="Imagem em tela cheia"
+                width={1024}
+                height={768}
+                quality={90}
+                className="w-auto h-auto max-w-full max-h-full"
+              />
+            </div>
+          </div>
+        )}
+
+        <div className='text-center p-8' >
+          <ButtonBlue name={'View More'} url={'../pages/ImageGalleryExt'} />
+        </div>
       </div>
-    </div>
-
     </section>
-   
   );
 };
 

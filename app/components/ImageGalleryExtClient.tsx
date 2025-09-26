@@ -8,14 +8,28 @@ interface ImageGalleryExtClientProps {
 }
 
 const ImageGalleryExtClient: React.FC<ImageGalleryExtClientProps> = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
-  const openModal = (src: string) => {
-    setSelectedImage(src);
+  const openModal = (index: number) => {
+    setSelectedImageIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedImageIndex(null);
+  };
+
+  const nextImage = () => {
+    setSelectedImageIndex((prevIndex) => {
+      if (prevIndex === null) return null;
+      return (prevIndex + 1) % images.length;
+    });
+  };
+
+  const prevImage = () => {
+    setSelectedImageIndex((prevIndex) => {
+      if (prevIndex === null) return null;
+      return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+    });
   };
 
   return (
@@ -25,7 +39,7 @@ const ImageGalleryExtClient: React.FC<ImageGalleryExtClientProps> = ({ images })
           <div 
             key={index}
             className="w-full aspect-square relative overflow-hidden rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105"
-            onClick={() => openModal(src)}
+            onClick={() => openModal(index)}
           >
             <Image
               src={src}
@@ -38,7 +52,7 @@ const ImageGalleryExtClient: React.FC<ImageGalleryExtClientProps> = ({ images })
         ))}
       </div>
 
-      {selectedImage && (
+      {selectedImageIndex !== null && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
           onClick={closeModal}
@@ -53,8 +67,20 @@ const ImageGalleryExtClient: React.FC<ImageGalleryExtClientProps> = ({ images })
             >
               &times;
             </button>
+            <button 
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold p-2 bg-black bg-opacity-50 rounded-full"
+              onClick={prevImage}
+            >
+              &#10094;
+            </button>
+            <button 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold p-2 bg-black bg-opacity-50 rounded-full"
+              onClick={nextImage}
+            >
+              &#10095;
+            </button>
             <Image
-              src={selectedImage}
+              src={images[selectedImageIndex]}
               alt="Imagem em tela cheia"
               width={1024}
               height={768}

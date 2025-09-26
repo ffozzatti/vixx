@@ -107,7 +107,7 @@ const About: React.FC = () => {
             />
             <Image
               alt="Pessoa sorrindo e usando óculos"
-              src="/assets/about-2.jpeg"
+              src="/assets/about-2.jpg"
               width={774}
               height={800}
               className="h-full w-full object-cover"
