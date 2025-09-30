@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { FaStar } from "react-icons/fa";
+import ButtonBlue from './ButtonBlue';
 
 // Interface para as props do AnimatedNumber
 interface AnimatedNumberProps {
@@ -202,6 +203,12 @@ const Testimonials = () => {
           {/* Fim do Card */}
         </div>
         {/* Fim do Grid */}
+        <div className="text-center mt-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold mb-8">
+              Your opinion matters! Help others find us by leaving your review.
+            </h2>
+            <ButtonBlue name={"Leave a review"} url={'https://www.google.com/search?sca_esv=426a8004247428d8&hl=en-US&sxsrf=AE3TifOVVkUmEomDYIzHySPduEEaFUUOoA:1759195445688&q=vix+construction+llc+reviews&uds=AOm0WdE9OxRDNYaNX2dVV7YhrquSTF4srTT9rLjpySrvAJ1hoa9xFXZjQNfib9XQBS1FYBxJ8M3LEO2UwWF6Pq0kNmunU2wja-jOCeG1mmVS_2M9a16AihoNoK-ckFFowIKqQF_8gjEUtlRwJaES3CABNO_NCPHJ0L-9JJ9WcR6IvvvIouO_SAwg1M9WRobJSKqDzRZ88dwgwwMzvbpCbcuD9dnVTKAenVmvtIG0TH8vTscvhKOX_RjhHysh3lz4Vz8OEEveMRSP2PN1xT_9IRxJHrT8A3C-0zgQle7nCMmJN7NC_W_X-nlJF8TbjJm8NTE6x_ldXmNTY9XCNtRvuF7C1_sFeaCMXJ2Y5ZROqJjmEcHE8xkyR8E&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EwRUN_8AvdRXFDykTReYFI_tJdhrO4MBHDC5Tra075TevF97hS1PNO1F_eC4xM_GidcxL3XmSmICo6oiqTWXBQT7XClxPOCYwYqXZFIER2AXgIeC1g%3D%3D&sa=X&ved=2ahUKEwilv4Xdqf-PAxW9l5UCHXTGKWMQk8gLegQIFhAB&ictx=1&biw=384&bih=717&dpr=2.81'} />
+          </div>
 
         {/* Grid de Estatísticas com Animação */}
         <div
@@ -235,6 +242,7 @@ const Testimonials = () => {
 
           </div>
           {/* Fim da Estatística 3 */}
+          
         </div>
         {/* Fim do Grid */}
 
@@ -248,6 +256,7 @@ const Testimonials = () => {
         </div>
         {/* Fim do Elemento SVG */}
       </div>
+
     </div>
   );
 };
