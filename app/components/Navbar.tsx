@@ -60,7 +60,7 @@ function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <ButtonBlue name={"More"} url={"../pages/Contact"} />
+            <ButtonBlue name={"Get a Quote"} url={"../pages/Contact"} />
           </div>
 
           <div className="md:hidden">

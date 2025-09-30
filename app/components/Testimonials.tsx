@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { FaStar } from "react-icons/fa";
 
 // Interface para as props do AnimatedNumber
 interface AnimatedNumberProps {
@@ -121,73 +122,83 @@ const Testimonials = () => {
           `}
         >
           {/* ...Seus cards aqui... */}
-          <div className="flex h-auto">
+          <a className="flex h-auto" href={'https://share.google/dVjdJqGgLDYniAxpk'} target='_blank'>
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base italic md:text-lg text-gray-800">
-                  &quot; With Preline, we&#39;re able to easily track our performance in full detail. It&#39;s become an essential tool for us to grow and engage with our audience. &quot;
+                  &quot;They built our deck one year ago, and it still looks perfect! The quality is amazing, and the team did an excellent job. Very professional and reliable. Highly recommend! &quot;
                 </p>
               </div>
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Josh Tyson
+                      Gabriela Filgueiras
                     </p>
                     <p className="text-xs text-gray-500">
-                      Product Manager | Capsule
+                      <span className='flex'>
+                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                      </span>
+                      Google Review
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
           {/* Card */}
-          <div className="flex h-auto">
+          <a className="flex h-auto" href={'https://share.google/Za5jNyR4nnGFQcnml'} target='_blank'>
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base italic md:text-lg text-gray-800">
-                  &quot; In September, I will be using this theme for 2 years. I went through multiple updates and changes and I&#39;m very glad to see the consistency and effort made by the team. &quot;
+                  &quot; Great experience from start to finish! The team was professional, efficient, and delivered a beautiful deck with excellent quality. Highly recommend their services! &quot;
                 </p>
               </div>
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Luisa
+                      Ellen Salvador
                     </p>
                     <p className="text-xs text-gray-500">
-                      Senior Director of Operations | Fitbit
+                      <span className='flex'>
+                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                      </span>
+                      Google Review
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
           {/* Fim do Card */}
 
           {/* Card */}
-          <div className="flex h-auto">
+          <a className="flex h-auto" href={'https://share.google/IlsdAN6plFnLgLYPy'} target='_blank'>
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base italic md:text-lg text-gray-800">
-                  &quot; Refreshing and Thought provoking design and it changes my view about how I design the websites. Great typography, modern clean white design, nice tones of the color. &quot;
+                  &quot;The boss was very polite and kind, they did the work on time! &quot;
                 </p>
               </div>
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Alisa Williams
+
+                      Andre Soares
                     </p>
                     <p className="text-xs text-gray-500">
-                      Entrepreneur | Happy customer
+                      <span className='flex'>
+                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                      </span>
+                      Google Review
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
           {/* Fim do Card */}
         </div>
         {/* Fim do Grid */}
@@ -205,7 +216,7 @@ const Testimonials = () => {
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Year in business</h4>
             <AnimatedNumber targetNumber={4} unit="+" />
-           
+
           </div>
           {/* Fim da Estatística 1 */}
 
@@ -213,7 +224,7 @@ const Testimonials = () => {
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Satisfied clients</h4>
             <AnimatedNumber targetNumber={400} unit="+" />
-        
+
           </div>
           {/* Fim da Estatística 2 */}
 
@@ -221,7 +232,7 @@ const Testimonials = () => {
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Completed projects</h4>
             <AnimatedNumber targetNumber={800} unit="+" />
-         
+
           </div>
           {/* Fim da Estatística 3 */}
         </div>
