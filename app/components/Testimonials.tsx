@@ -229,7 +229,7 @@ const Testimonials = () => {
                 >
                   <div className="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 w-full">
                     <div className="flex-auto p-4 md:p-6">
-                      <p className="text-base italic md:text-lg text-gray-800 h-28 overflow-hidden">
+                      <p className="text-base italic md:text-lg text-gray-800  overflow-hidden py-4">
                         &quot;{card.quote}&quot;
                       </p>
                     </div>

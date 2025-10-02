@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="phoneNumber"
                     id="phoneNumber"
-                    placeholder="(nnn) nnn-nnnn "
+                    placeholder=" "
                     className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 border-2 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                     // 3. Adicione as propriedades 'value' e 'onChange'
                     value={phoneNumber}
