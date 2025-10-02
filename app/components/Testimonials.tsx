@@ -2,30 +2,118 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ButtonBlue from './ButtonBlue';
 
-// Interface para as props do AnimatedNumber
+// Interface para as props do AnimatedNumber (mantido)
 interface AnimatedNumberProps {
   targetNumber: number;
   unit: string;
   isPercentage?: boolean;
 }
 
+// Seus cards de depoimentos (mantido)
+const testimonialCards = [
+  {
+    id: 1,
+    quote: "They built our deck one year ago, and it still looks perfect! The quality is amazing, and the team did an excellent job. Very professional and reliable. Highly recommend!",
+    name: "Gabriela Filgueiras",
+    source: "Google Review",
+    link: 'https://share.google/dVjdJqGgLDYniAxpk',
+  },
+  {
+    id: 2,
+    quote: "Great experience from start to finish! The team was professional, efficient, and delivered a beautiful deck with excellent quality. Highly recommend their services!",
+    name: "Ellen Salvador",
+    source: "Google Review",
+    link: 'https://share.google/Za5jNyR4nnGFQcnml',
+  },
+  {
+    id: 3,
+    quote: "So happy with our baby room addition! The VIX team was professional, fast, and detail-oriented. The result is perfect!",
+    name: "Jess Isidoro",
+    source: "Google Review",
+    link: 'https://share.google/VOZe93ekPUfdhIhzR',
+  },
+  {
+    id: 4,
+    quote: "They renovated our kitchen and living room, and the results are beyond our expectations. The attention to detail, professionalism, and quality of work were outstanding. It truly feels like a brand-new home. Thank you guys!",
+    name: "Dheny Miranda",
+    source: "Google Review",
+    link: 'https://share.google/VOZe93ekPUfdhIhzR',
+  },
+];
+
 const Testimonials = () => {
   const [cardsInView, setCardsInView] = useState(false);
   const [statsInView, setStatsInView] = useState(false);
+  const [currentCard, setCurrentCard] = useState(0); 
+  const [cardsPerView, setCardsPerView] = useState(1); // Novo estado para controlar a visualização
+  
   const cardsRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
-  // useEffect para a animação dos cards
+  const numCards = testimonialCards.length;
+
+  // 1. Função para determinar o número de cards visíveis
+  const calculateCardsPerView = () => {
+    if (typeof window === 'undefined') return 1; 
+    
+    // As classes Tailwind determinam 1 card (default), 2 (sm) ou 3 (lg)
+    if (window.innerWidth >= 1024) return 3; // lg: 3 cards
+    if (window.innerWidth >= 640) return 2; // sm: 2 cards
+    return 1; // Mobile: 1 card
+  };
+
+  // 2. useEffect para atualizar cardsPerView na montagem e redimensionamento
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      setCardsPerView(calculateCardsPerView());
+    };
+
+    updateCardsPerView(); // Atualiza na montagem inicial
+    window.addEventListener('resize', updateCardsPerView);
+
+    return () => {
+      window.removeEventListener('resize', updateCardsPerView);
+    };
+  }, []);
+
+  // O índice máximo que o carrossel pode atingir sem mostrar espaços vazios
+  const maxIndex = Math.max(0, numCards - cardsPerView);
+
+  // 3. Lógica de Navegação Corrigida (Sem Loop, Parando no Último Card Visível)
+  
+  const goToNext = () => {
+    setCurrentCard((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const goToPrev = () => {
+    setCurrentCard((prev) => Math.max(prev - 1, 0));
+  };
+  
+  // O deslocamento precisa ser a largura de um único card.
+  // A largura de um card é 100% dividido pelo número de cards no 'trilho'
+  // Como estamos movendo 1 card por vez, usamos 100% (a largura de um card visível, 
+  // que no trilho flexível é 100% da visualização móvel, 50% da visualização SM, etc.)
+  // Para que o movimento corresponda ao índice, mantemos o `currentCard * 100%`
+  // e dependemos da restrição `maxIndex` e das classes Tailwind no card.
+  const getTranslateX = () => {
+    // Isso move o trilho a largura de UM card, independentemente de quantos são visíveis
+    // Mobile: -100% * 0, -100% * 1, -100% * 2, -100% * 3 (até maxIndex = 3)
+    // Desktop (3 cards visíveis): -100% * 0, -100% * 1 (até maxIndex = 1)
+    return `translateX(-${currentCard * (100 / cardsPerView)}%)`;
+  };
+
+
+  // Efeito para a animação de entrada da seção (mantido)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setCardsInView(entry.isIntersecting);
       },
       {
-        threshold: 0.1, // Ajusta o ponto em que a animação é acionada
+        threshold: 0.1,
       }
     );
 
@@ -38,10 +126,11 @@ const Testimonials = () => {
         observer.unobserve(cardsRef.current);
       }
     };
-  }, []); // Array de dependências vazio para que o observer seja criado apenas uma vez
+  }, []);
 
-  // useEffect para a animação das estatísticas
+  // useEffect para a animação das estatísticas (mantido)
   useEffect(() => {
+    // ... (Mantido)
     const observer = new IntersectionObserver(
       ([entry]) => {
         setStatsInView(entry.isIntersecting);
@@ -60,9 +149,9 @@ const Testimonials = () => {
         observer.unobserve(statsRef.current);
       }
     };
-  }, []); // Array de dependências vazio
+  }, []);
 
-  // Componente AnimatedNumber
+  // Componente AnimatedNumber (mantido)
   const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     targetNumber,
     unit,
@@ -71,7 +160,6 @@ const Testimonials = () => {
     const [currentNumber, setCurrentNumber] = useState(0);
 
     useEffect(() => {
-      // Re-inicia a animação se a seção de stats estiver visível
       if (statsInView) {
         let start = 0;
         const duration = 2000;
@@ -87,7 +175,6 @@ const Testimonials = () => {
         }, 10);
         return () => clearInterval(timer);
       } else {
-        // Reseta o número quando a seção não está visível
         setCurrentNumber(0);
       }
     }, [statsInView, targetNumber]);
@@ -105,7 +192,8 @@ const Testimonials = () => {
   return (
     <div className="overflow-hidden">
       <div className="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        {/* Título */}
+        
+        {/* Título (mantido) */}
         <div className="max-w-2xl w-3/4 lg:w-1/2 mb-6 sm:mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold">
             See what our clients have to say about the quality and professionalism of our projects.
@@ -113,104 +201,110 @@ const Testimonials = () => {
         </div>
         {/* Fim do Título */}
 
-        {/* Grid de Cards com Animação */}
+        {/* Carrossel de Cards com Animação */}
         <div
           ref={cardsRef}
           className={`
-            grid sm:grid-cols-2 lg:grid-cols-3 gap-6
+            relative
             transform transition-all duration-1000 ease-in-out
             ${cardsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
         >
-          {/* ...Seus cards aqui... */}
-          <a className="flex h-auto" href={'https://share.google/dVjdJqGgLDYniAxpk'} target='_blank'>
-            <div className="flex flex-col bg-white rounded-xl">
-              <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  &quot;They built our deck one year ago, and it still looks perfect! The quality is amazing, and the team did an excellent job. Very professional and reliable. Highly recommend! &quot;
-                </p>
-              </div>
-              <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
-                <div className="flex items-center gap-x-3">
-                  <div className="grow">
-                    <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Gabriela Filgueiras
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      <span className='flex'>
-                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                      </span>
-                      Google Review
-                    </p>
+          {/* Container do Carrossel que esconde o overflow */}
+          <div className="overflow-hidden">
+            {/* O "trilho" dos cards */}
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              // 🚨 CORREÇÃO PRINCIPAL: O getTranslateX está usando 100 / cardsPerView
+              style={{ transform: getTranslateX() }} 
+            >
+              {testimonialCards.map((card) => (
+                <a
+                  key={card.id}
+                  // Largura do card: 1 card por vez, 2, ou 3
+                  className="flex h-auto min-w-full sm:min-w-[50%] lg:min-w-[33.3333%] p-3"
+                  href={card.link}
+                  target='_blank'
+                  rel="noopener noreferrer"
+                >
+                  <div className="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 w-full">
+                    <div className="flex-auto p-4 md:p-6">
+                      <p className="text-base italic md:text-lg text-gray-800 h-28 overflow-hidden">
+                        &quot;{card.quote}&quot;
+                      </p>
+                    </div>
+                    <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
+                      <div className="flex items-center gap-x-3">
+                        <div className="grow">
+                          <p className="text-sm sm:text-base font-semibold text-gray-800">
+                            {card.name}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            <span className='flex text-yellow-500'>
+                              <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                            </span>
+                            {card.source}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </a>
+              ))}
             </div>
-          </a>
-          {/* Card */}
-          <a className="flex h-auto" href={'https://share.google/Za5jNyR4nnGFQcnml'} target='_blank'>
-            <div className="flex flex-col bg-white rounded-xl">
-              <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  &quot; Great experience from start to finish! The team was professional, efficient, and delivered a beautiful deck with excellent quality. Highly recommend their services! &quot;
-                </p>
-              </div>
-              <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
-                <div className="flex items-center gap-x-3">
-                  <div className="grow">
-                    <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Ellen Salvador
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      <span className='flex'>
-                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                      </span>
-                      Google Review
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          {/* Fim do Card */}
-
-          {/* Card */}
-          <a className="flex h-auto" href={'https://share.google/IlsdAN6plFnLgLYPy'} target='_blank'>
-            <div className="flex flex-col bg-white rounded-xl">
-              <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  &quot;The boss was very polite and kind, they did the work on time! &quot;
-                </p>
-              </div>
-              <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
-                <div className="flex items-center gap-x-3">
-                  <div className="grow">
-                    <p className="text-sm sm:text-base font-semibold text-gray-800">
-
-                      Andre Soares
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      <span className='flex'>
-                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                      </span>
-                      Google Review
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          {/* Fim do Card */}
-        </div>
-        {/* Fim do Grid */}
-        <div className="text-center mt-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold mb-8">
-              Your opinion matters! Help others find us by leaving your review.
-            </h2>
-            <ButtonBlue name={"Leave a review"} url={'https://www.google.com/search?sca_esv=426a8004247428d8&hl=en-US&sxsrf=AE3TifOVVkUmEomDYIzHySPduEEaFUUOoA:1759195445688&q=vix+construction+llc+reviews&uds=AOm0WdE9OxRDNYaNX2dVV7YhrquSTF4srTT9rLjpySrvAJ1hoa9xFXZjQNfib9XQBS1FYBxJ8M3LEO2UwWF6Pq0kNmunU2wja-jOCeG1mmVS_2M9a16AihoNoK-ckFFowIKqQF_8gjEUtlRwJaES3CABNO_NCPHJ0L-9JJ9WcR6IvvvIouO_SAwg1M9WRobJSKqDzRZ88dwgwwMzvbpCbcuD9dnVTKAenVmvtIG0TH8vTscvhKOX_RjhHysh3lz4Vz8OEEveMRSP2PN1xT_9IRxJHrT8A3C-0zgQle7nCMmJN7NC_W_X-nlJF8TbjJm8NTE6x_ldXmNTY9XCNtRvuF7C1_sFeaCMXJ2Y5ZROqJjmEcHE8xkyR8E&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EwRUN_8AvdRXFDykTReYFI_tJdhrO4MBHDC5Tra075TevF97hS1PNO1F_eC4xM_GidcxL3XmSmICo6oiqTWXBQT7XClxPOCYwYqXZFIER2AXgIeC1g%3D%3D&sa=X&ved=2ahUKEwilv4Xdqf-PAxW9l5UCHXTGKWMQk8gLegQIFhAB&ictx=1&biw=384&bih=717&dpr=2.81'} />
           </div>
 
-        {/* Grid de Estatísticas com Animação */}
+          {/* Botões de Navegação */}
+          <div className="absolute inset-y-0 left-0 flex items-center">
+            <button
+              type="button"
+              onClick={goToPrev}
+              className="p-2 m-2 bg-white rounded-full shadow-md text-gray-800 hover:bg-gray-100 disabled:opacity-50 transition"
+              // Habilita/Desabilita para parar no início
+              disabled={currentCard === 0} 
+            >
+              <FaChevronLeft className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center">
+            <button
+              type="button"
+              onClick={goToNext}
+              className="p-2 m-2 bg-white rounded-full shadow-md text-gray-800 hover:bg-gray-100 disabled:opacity-50 transition"
+              // Habilita/Desabilita para parar no último card visível
+              disabled={currentCard >= maxIndex}
+            >
+              <FaChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Indicadores de Posição */}
+          <div className="flex justify-center space-x-2 mt-4">
+            {/* O indicador deve ir apenas até o maxIndex */}
+            {testimonialCards.slice(0, maxIndex + 1).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentCard(index)}
+                className={`h-2 w-2 rounded-full transition-all duration-300 ${currentCard === index ? 'bg-[#01122E] w-5' : 'bg-gray-300'
+                  }`}
+                aria-label={`Go to card ${index + 1}`}
+              />
+            ))}
+          </div>
+
+        </div>
+        {/* Fim do Carrossel */}
+
+        {/* ... Restante do código (mantido) ... */}
+        
+        <div className="text-center mt-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold mb-8">
+            Your opinion matters! Help others find us by leaving your review.
+          </h2>
+          <ButtonBlue name={"Leave a review"} url={'https://www.google.com/search?sca_esv=426a8004247428d8&hl=en-US&sxsrf=AE3TifOVVkUmEomDYIzHySPduEEaFUUOoA:1759195445688&q=vix+construction+llc+reviews&uds=AOm0WdE9OxRDNYaNX2dVV7YhrquSTF4srTT9rLjpySrvAJ1hoa9xFXZjQNfib9XQBS1FYBxJ8M3LEO2UwWF6Pq0kNmunU2wja-jOCeG1mmJN7NC_W_X-nlJF8TbjJm8NTE6x_ldXmNTY9XCNtRvuF7C1_sFeaCMXJ2Y5ZROqJjmEcHE8xkyR8E&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EwRUN_8AvdRXFDykTReYFI_tJdhrO4MBHDC3Tra075TevF97hS1PNO1F_eC4xM_GidcxL3XmSmICo6oiqTWXBQT7XClxPOCYwYqXZFIER2AXgIeC1g%3D%3D&sa=X&ved=2ahUKWilv4Xdqf-PAxW9l5UCHXTGKWMQk8gLegQIFhAB&ictx=1&biw=384&bih=717&dpr=2.81'} />
+        </div>
+
+        {/* Grid de Estatísticas com Animação (mantido) */}
         <div
           ref={statsRef}
           className={`
@@ -219,34 +313,24 @@ const Testimonials = () => {
             ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
         >
-          {/* Estatística 1 */}
+          {/* Estatística 1, 2, 3 (mantidas) */}
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Year in business</h4>
             <AnimatedNumber targetNumber={4} unit="+" />
-
           </div>
-          {/* Fim da Estatística 1 */}
-
-          {/* Estatística 2 */}
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Satisfied clients</h4>
             <AnimatedNumber targetNumber={400} unit="+" />
-
           </div>
-          {/* Fim da Estatística 2 */}
-
-          {/* Estatística 3 */}
           <div>
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800">Completed projects</h4>
             <AnimatedNumber targetNumber={800} unit="+" />
-
           </div>
-          {/* Fim da Estatística 3 */}
-          
+
         </div>
         {/* Fim do Grid */}
 
-        {/* Elemento SVG */}
+        {/* Elemento SVG (mantido) */}
         <div className="absolute bottom-0 end-0 transform lg:translate-x-32" aria-hidden="true">
           <svg className="w-40 h-auto sm:w-72" width="1115" height="636" viewBox="0 0 1115 636" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.990203 279.321C-1.11035 287.334 3.68307 295.534 11.6966 297.634L142.285 331.865C150.298 333.965 158.497 329.172 160.598 321.158C162.699 313.145 157.905 304.946 149.892 302.845L33.8132 272.418L64.2403 156.339C66.3409 148.326 61.5475 140.127 53.5339 138.026C45.5204 135.926 37.3213 140.719 35.2207 148.733L0.990203 279.321ZM424.31 252.289C431.581 256.26 440.694 253.585 444.664 246.314C448.635 239.044 445.961 229.931 438.69 225.96L424.31 252.289ZM23.0706 296.074C72.7581 267.025 123.056 230.059 187.043 212.864C249.583 196.057 325.63 198.393 424.31 252.289L438.69 225.96C333.77 168.656 249.817 164.929 179.257 183.892C110.144 202.465 54.2419 243.099 7.92943 270.175L23.0706 296.074Z" fill="currentColor" className="fill-[#01122E]" />
@@ -256,7 +340,6 @@ const Testimonials = () => {
         </div>
         {/* Fim do Elemento SVG */}
       </div>
-
     </div>
   );
 };
