@@ -87,7 +87,7 @@ const Service: React.FC<ServiceProps> = ({
               </div>
             ))}
 
-            <ButtonInverse name={"Contact"} url={"../pages/Contact"}  />
+            <ButtonInverse name={"Contact"} url={"../pages/Contact.html"}  />
           </div>
         </div>
       </div>

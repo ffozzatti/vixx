@@ -54,7 +54,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ slides }) => {
                       {slide.title}
                     </span>
                     <div className="mt-5">
-                      <ButtonBlue name={"More"} url={"../pages/Contact"} />
+                      <ButtonBlue name={"More"} url={"../pages/Contact.html"} />
                     </div>
                   </div>
                 </div>

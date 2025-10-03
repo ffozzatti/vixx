@@ -120,7 +120,7 @@ const ImageGallery: React.FC = () => {
         )}
 
         <div className='text-center p-8' >
-          <ButtonBlue name={'View More'} url={'../pages/ImageGalleryExt'} />
+          <ButtonBlue name={'View More'} url={'../pages/ImageGalleryExt.html'} />
         </div>
       </div>
     </section>

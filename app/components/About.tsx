@@ -84,7 +84,7 @@ const About: React.FC = () => {
                 CEO-Owner of VIX Construction
               </p>
               <div className="mt-4 md:mt-8">
-                <ButtonInverse name={"More"} url={"../pages/Contact"} />
+                <ButtonInverse name={"More"} url={"../pages/Contact.html"} />
               </div>
             </div>
           </div>

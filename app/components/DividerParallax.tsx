@@ -39,7 +39,7 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
           </p>
 
           <div className="mt-4 sm:mt-8">
-            <Button name={"Contact"} url={"../pages/Contact"}  />
+            <Button name={"Contact"} url={"../pages/Contact.html"}  />
           </div>
         </div>
       </div>
