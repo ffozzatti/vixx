@@ -301,7 +301,7 @@ const Testimonials = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 font-semibold mb-8">
             Your opinion matters! Help others find us by leaving your review.
           </h2>
-          <ButtonBlue name={"Leave a review"} url={'https://www.google.com/search?sca_esv=426a8004247428d8&hl=en-US&sxsrf=AE3TifOVVkUmEomDYIzHySPduEEaFUUOoA:1759195445688&q=vix+construction+llc+reviews&uds=AOm0WdE9OxRDNYaNX2dVV7YhrquSTF4srTT9rLjpySrvAJ1hoa9xFXZjQNfib9XQBS1FYBxJ8M3LEO2UwWF6Pq0kNmunU2wja-jOCeG1mmJN7NC_W_X-nlJF8TbjJm8NTE6x_ldXmNTY9XCNtRvuF7C1_sFeaCMXJ2Y5ZROqJjmEcHE8xkyR8E&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EwRUN_8AvdRXFDykTReYFI_tJdhrO4MBHDC3Tra075TevF97hS1PNO1F_eC4xM_GidcxL3XmSmICo6oiqTWXBQT7XClxPOCYwYqXZFIER2AXgIeC1g%3D%3D&sa=X&ved=2ahUKWilv4Xdqf-PAxW9l5UCHXTGKWMQk8gLegQIFhAB&ictx=1&biw=384&bih=717&dpr=2.81'} />
+          <ButtonBlue name={"Leave a review"} url={'https://maps.app.goo.gl/Yco4NaEG7h7gQYGd9'} />
         </div>
 
         {/* Grid de Estatísticas com Animação (mantido) */}

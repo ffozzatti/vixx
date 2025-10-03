@@ -1,13 +1,37 @@
-"use client";
+'use client';
 
-import React from "react";
+import React, { useState } from 'react';
 
 import { useForm, ValidationError } from "@formspree/react";
-import ButtonForm from "@/app/components/ButtonForm";
+import ButtonForm from '@/app/components/ButtonForm';
 
 
 const Contact: React.FC = () => {
   const [state, handleSubmit] = useForm("xeolrzqz");
+  // 1. Crie um estado para o número de telefone
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  // 2. Crie a função de formatação
+  const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target.value;
+    // Remove todos os caracteres que não sejam números
+    const formatted = input.replace(/\D/g, '');
+
+    // Aplica a máscara de formatação
+    let newPhoneNumber = '';
+    if (formatted.length > 0) {
+      newPhoneNumber = `(${formatted.substring(0, 3)}`;
+    }
+    if (formatted.length >= 4) {
+      newPhoneNumber += `) ${formatted.substring(3, 6)}`;
+    }
+    if (formatted.length >= 7) {
+      newPhoneNumber += `-${formatted.substring(6, 10)}`;
+    }
+
+    // Atualiza o estado com o número formatado
+    setPhoneNumber(newPhoneNumber);
+  };
 
   if (state.succeeded) {
     return (
@@ -22,7 +46,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950" id="contact">
+    <div className="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 lg:py-14 mx-auto text-neutral-950" id="contact">
       <div className="max-w-xl mx-auto">
         <div className="text-center">
           <h1 className="text-3xl font-bold sm:text-4xl">Contact us</h1>
@@ -89,8 +113,11 @@ const Contact: React.FC = () => {
                     type="text"
                     name="phoneNumber"
                     id="phoneNumber"
-                    placeholder="(nnn) nnn-nnnn "
+                    placeholder=" "
                     className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 border-2 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                    // 3. Adicione as propriedades 'value' e 'onChange'
+                    value={phoneNumber}
+                    onChange={handlePhoneNumberChange}
                   />
                   <ValidationError prefix="Phone Number" field="phoneNumber" errors={state.errors} />
                 </div>
