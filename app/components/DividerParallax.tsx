@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./ButtonForm";
+import ButtonBlue from "./ButtonBlue";
 
 // Define a estrutura das props para o componente
 interface DividerParallaxProps {
@@ -39,7 +39,7 @@ const DividerParallax: React.FC<DividerParallaxProps> = ({
           </p>
 
           <div className="mt-4 sm:mt-8">
-            <Button name={"Contact"} url={"../pages/Contact.html"}  />
+            <ButtonBlue name={"Contact"} url={"../pages/Contact.html"}  />
           </div>
         </div>
       </div>
